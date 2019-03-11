@@ -77,7 +77,9 @@
             function search() {
                 var searchedPage;
                 searchedPage = document.getElementById("searchbar").value;
-                location.href = "/Pages/Songs/" + searchedPage + ".html"
+                if (searchedPage != "") {
+                    location.href = "/Pages/Songs/" + searchedPage + ".html"
+                }
             }
 
     </script>
