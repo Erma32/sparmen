@@ -34,18 +34,18 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10">
-                    <h1 class="text-center responsive" style="margin-top:80px">Det sjungs för lite på den här festen!</h1>
-                    <br />
-                    <br />
-                    <button style="height:70px" type="button" onclick="window.location.href = '/Sparmen.html';" class="btn btn-primary btn-lg btn-block" >Öppna Spermen</button>
-                    <br />
-                    <br />
-                    <br />
-                    <h3 class="text-left">Eller..</h3>
-                    <h3 class="text-left">Sök på spermnummer</h3>
-                    <p>Använd punktform, ex 10.6.16</p>
+                        <h1 id="adjective" class="text-center responsive" style="margin-top:80px"></h1>
+                        <br />
+                        <br />
+                        <button style="height:70px" type="button" onclick="window.location.href = '/Sparmen.html';" class="btn btn-primary btn-lg btn-block">Öppna Spermen</button>
+                        <br />
+                        <br />
+                        <br />
+                        <h3 class="text-left">Eller..</h3>
+                        <h3 class="text-left">Sök på spermnummer</h3>
+                        <p>Använd punktform, ex 10.6.16</p>
 
-                    
+
                         <div class="input-group input-group-lg">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-lg">Sperm-nr.</span>
@@ -56,9 +56,9 @@
                                 <button class="btn btn-primary" type="button" value="Submit" onclick="search()">SÖK!</button>
                             </div>
                         </div>
-                    
+
+                    </div>
                 </div>
-            </div>
         </div>
     </main>
 
@@ -82,6 +82,23 @@
                 }
             }
 
+            window.onload = function () {
+                sentencegen();
+            }
+            function sentencegen() {
+                    var words = [
+                        'Det sjungs på tok för lite på den här festen!',
+                        'Det sjungs alldeles för lite på den här festen!',
+                        'Det sjungs galet lite på den här festen!',
+                        'Det sjungs ofantligt lite på den här festen!',
+                        'Det sjungs katastrofalt för lite på den här festen!',
+                        'Det sjungs för lite på den här festen!'
+                    ];
+                    console.log('work');
+                    var randomNumber = Math.floor(Math.random() * (words.length));
+                    document.getElementById('adjective').innerHTML = words[randomNumber];
+                };
+            
     </script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
