@@ -117,7 +117,6 @@ if yearToSpex.keys() == spexDict.keys():
 else:
     print('yearToSpex.keys() != spexDict.keys() \nNot Writing Anything!')
 
-# %%
 wk_dir = '/home/mumrah/github/sparmen/pythonCode/smallPDFs/'
 
 txts = [file for file in os.listdir(wk_dir) if re.search(r'.txt', file)]
@@ -182,3 +181,8 @@ for spex in dict.keys():
         w = open(dir_path + str(i+1) + '.txt', 'w+')
         w.write(row)
         w.close()
+
+
+#    print(split)
+#    if year:
+#        print(year.group())

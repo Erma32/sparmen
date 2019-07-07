@@ -1,6 +1,6 @@
-1.Det var bättre
-förr
-Jazzbacillen
+1.Det var bättre förr
+Melodi: Jazzbacillen
+
 Visst är det härligt
 med dåtid
 Ja det är perfekt
@@ -13,8 +13,8 @@ Coolt jag är på g
 Om förr va nu och
 inte då
 Då är jag inte med
-	
-  
+
+
 Jag vill tillbaka i
 tiden
 Idag är allt på glid
@@ -35,7 +35,7 @@ Humöret är på topp
 För med historien
 bakom sig
 
-  
+
 Då finns det alltid
 hopp
 Och mot en
@@ -165,7 +165,7 @@ hajkar, jo för
 scouter är vi.
 Naturromantik
 upplevs bland
-  
+
 mygg och knott-
 svärmeri
 Vi vet inget bättre,
@@ -274,8 +274,8 @@ Han är här bland
 oss igen!
 Vi har hittat Jesus!
 Jubla änglakör,
-		
-  
+
+
 för vår frälsare, den
 man som hyllas
 bör!
@@ -313,8 +313,8 @@ Vi har hittat Jesus
 Du som är Guds
 lamm, låt oss
 smörja dina fötter
-	
-  
+
+
 med en svindyr
 balsam
 Vi vill bada i
@@ -350,8 +350,8 @@ Vi har hittat Jesus!
 
 6. Slut-träskodan
 Paper planes
-26.4	
-  
+26.4
+
 Man lever blott en
 enda gång
 det gäller att alltid

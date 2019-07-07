@@ -1,6 +1,6 @@
-1.Det var bättre
-förr
-Jazzbacillen
+1.Det var bättre förr
+Melodi: Jazzbacillen
+
 Visst är det härligt
 med dåtid
 Ja det är perfekt
@@ -13,8 +13,8 @@ Coolt jag är på g
 Om förr va nu och
 inte då
 Då är jag inte med
-	
-  
+
+
 Jag vill tillbaka i
 tiden
 Idag är allt på glid
@@ -35,7 +35,7 @@ Humöret är på topp
 För med historien
 bakom sig
 
-  
+
 Då finns det alltid
 hopp
 Och mot en
