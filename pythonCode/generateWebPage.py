@@ -1,4 +1,5 @@
 import os, sys, re
+from itertools import cycle
 
 spexString ='''
 <button class="collapsible">SPEX</button>
@@ -6,15 +7,35 @@ spexString ='''
 SONGS
 </div>
 '''
+spexString2 ='''
+<button class="collapsible4">SPEX</button>
+<div class="content">
+SONGS
+</div>
+'''
+SS = cycle([spexString,spexString2])
 
 oneSong = '''
-  <button class="collapsible">SONGTITLE</button>
+  <button class="collapsible3">SONGTITLE</button>
   <div class="content2">
     SONGTEXT
   </div>
 '''
+oneSong2 = '''
+  <button class="collapsible5">SONGTITLE</button>
+  <div class="content2">
+    SONGTEXT
+  </div>
+'''
+OS = cycle([oneSong, oneSong2])
 
-urlToSongs = '/home/markus/sparmen/pythonCode/songTXT/'
+titleBox = '''<button class="collapsible2">YEAR</button>
+<div class="content2">
+
+</div>
+'''
+
+urlToSongs = '/home/mumrah/PycharmProjects/sparmen/pythonCode/songTXT/'
 monsterString = ''
 
 # sort those fuckers by year. Fuck you 2023
@@ -36,31 +57,41 @@ for spex, year in test:
 for button in spexDict.keys():
     spexCounter = spexDict[button]['num']
     currentSpexString = re.sub(r'SPEX',str(spexCounter)+ '&nbsp'*5 + re.sub(r'[_]', ' ', button),spexString)
+    currentSpexString = re.sub(r'SPEX',
+                               str(spexCounter)+ '&nbsp'*5 + re.sub(r'[_]', ' ', button),next(SS))
+
     storeSongs = []
     songCounter = 0
     for song in spexDict[button]['urls']:
         list_of_songs = os.listdir(song)
         list_of_songs.sort()
         y = re.findall(r'\d\d', song)[-1]
+        storeSongs.append(re.sub('YEAR', re.findall(r'\d\d\d\d', song)[-1], titleBox))
         if y[0] == '0':
             y = y[1]
+
         for song2 in list_of_songs:
             songCounter += 1
             f = open(song + song2, 'r')
-            songName = str(spexCounter) +  '.' + str(songCounter) + '.' + y + '&nbsp'*5+ f.readlines(1)[0]
+            songName = '<b>' + str(spexCounter) +  '.' + str(songCounter)  + '&nbsp'*5+ f.readlines(1)[0] + '</b>'
             songText = f.read()
             f.close()
             songText = re.sub(r'\n', '<br>', songText)
-            currentSong = re.sub(r'SONGTITLE', songName, oneSong)
+            m = re.split(r'<br>',songText)
+            m[0] = '<i><b><small>' + m[0] + '</small></b></i><br>'
+            songText = '<br>'.join(m)
+            currentSong = re.sub(r'SONGTITLE', songName, next(OS))
             storeSongs.append(re.sub(r'SONGTEXT', songText, currentSong))
+
     currentSpexString = re.sub(r'SONGS', ''.join(storeSongs), currentSpexString)
+
     if len(currentSpexString) > 1000:
         monsterString += currentSpexString
 
 
 
-webPageURL = '/home/markus/sparmen/pythonCode/webPageMarkus/pageTemplate.html'
-webPageURL2 = '/home/markus/sparmen/pythonCode/webPageMarkus/webPage.html'
+webPageURL = '/home/mumrah/PycharmProjects/sparmen/pythonCode/webPageMarkus/pageTemplate.html'
+webPageURL2 = '/home/mumrah/PycharmProjects/sparmen/pythonCode/webPageMarkus/webPage.html'
 f = open(webPageURL, 'r')
 webPageTemplate = f.read()
 f.close()

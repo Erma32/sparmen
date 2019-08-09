@@ -4,7 +4,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .collapsible {
-  background-color: #177;
+  background-color: #666;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 80%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 12px;
+}
+.collapsible4 {
+  background-color: #888;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 80%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 12px;
+}
+.collapsible2 {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 90%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 8px;
+}
+.collapsible3 {
+  background-color: #777;
   color: white;
   cursor: pointer;
   padding: 5px;
@@ -12,7 +45,18 @@
   border: none;
   text-align: left;
   outline: none;
-  font-size: 18px;
+  font-size: 8px;
+}
+.collapsible5 {
+  background-color: #2e2927;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 8px;
 }
 
 .active, .collapsible:hover {
@@ -20,14 +64,16 @@
 }
 
 .content {
-  padding: 0 10px;
+  padding: 0 0px;
   display: none;
   overflow: hidden;
 }
 
 .content2 {
-  padding: 0 10px;
+  padding: 0 0px;
   display: none;
+  width: 100%;
+  font-size: 12px;
   overflow: hidden;
   background-color: #f1f1f1;
 }
@@ -36,7 +82,7 @@
 
 </head>
 <!-------------->
-<body>
+<body bgcolor="#f0f0f0">
 <h2>Var GladSpexarnas Sångpärm</h2>
 
 MONSTERSTRINGHERE
@@ -87,6 +133,53 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 </script>
+<script>
+var coll = document.getElementsByClassName("collapsible3");
+var i;
 
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+<script>
+var coll = document.getElementsByClassName("collapsible4");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+<script>
+var coll = document.getElementsByClassName("collapsible5");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 </body>
 </html>
