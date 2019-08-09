@@ -1,12 +1,3 @@
-Kompani Kivik
-Sommaren 2016
-1. Björklunds Bravader
-2. Vi Måste Luras
-3. Var är far?
-4. Ingen stoppning i hatt
-5. Telegrafistens aKlappella
-6. Nu kommer tysken på riktigt
-7. Vilken tur att vi har en slutlåt
 1. Björklunds Bravader
 Kapten Björklund
 Melodi: Svampbob Fyrkant Kapten Björklund
@@ -30,6 +21,7 @@ Kapten Björklund
 REDO?
 Kapten Björklund
 KAPTEN BJÖRKLUND
+
 2. Vi Måste Luras
 Melodi: Hishultabörje
 Tänk att vi ljugit sedan
@@ -80,8 +72,10 @@ Vi måste luras, så vi kan
 bo kvar här
 Vi måste luras, ingen får
 veta nåt, så tig!
-4. Ingen stoppning i hatt Sedan jag var liten har jag
+
+4. Ingen stoppning i hatt 
 Melodi: Inatt inatt
+Sedan jag var liten har jag
 velat bli
 djurkommunikatör
 Tycker du att livet är trist, Så att jag kan få prata med
@@ -95,6 +89,7 @@ verklighet.
 faktiskt gör
 Lyssna då för jag kan
 Kanske jag klarar av det
+
 3. Var är far?
 förklara hur du livsglädjen med en hatt
 Melodi: Motiva
@@ -175,7 +170,8 @@ Var är far?
 kort, kort!
 Lång, lång, lång, lång,
 kort, kort!
-30.26. Nu kommer tysken på 7. Vilken tur att vi har en
+30.26. Nu kommer tysken på 
+7. Vilken tur att vi har en
 riktigt
 slutlåt
 Melodi: Let the sunshine in Melodi: Jajamen
