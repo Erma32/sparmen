@@ -3,15 +3,15 @@ from itertools import cycle
 
 
 spexString ='''
-<button class="titlebutton1">SPEX</button>
-<div class="content">
+<button class="t1">SPEX</button>
+<div class="co1">
 SONGS
 </div>
 '''
 
 spexString2 ='''
-<button class="titlebutton2">SPEX</button>
-<div class="content">
+<button class="t2">SPEX</button>
+<div class="co1">
 SONGS
 </div>
 '''
@@ -19,35 +19,53 @@ SONGS
 SS = cycle([spexString,spexString2])
 
 oneSong = '''
-  <button class="collapsible3">SONGTITLE</button>
-  <div class="content2">
+  <button class="c3">SONGTITLE</button>
+  <div class="co2">
     SONGTEXT
   </div>
 '''
 oneSong2 = '''
-  <button class="collapsible5">SONGTITLE</button>
-  <div class="content2">
+  <button class="c5">SONGTITLE</button>
+  <div class="co2">
     SONGTEXT
   </div>
 '''
 OS = cycle([oneSong, oneSong2])
 
-titleBox = '''<button class="collapsible2">YEAR</button>
-<div class="content2">
+titleBox = '''<button class="c2">YEAR</button>
+<div class="co2">
 
 </div>
 '''
 
-def genPage(showMelody=True):
+def genPage(showMelody=True, showYoutube=True):
     wk_dir = '/home/markus/sparmen/'
     # wk_dir = os.getcwd() + '/'
     urlToSongs = wk_dir + '/songTXT/'
     monsterString = ''
+    def replaceaao(STRING):
+        STRING = re.sub(r'ä', '&auml', STRING)
+        STRING = re.sub(r'å', '&aring', STRING)
+        STRING = re.sub(r'ö', '&ouml', STRING)
+        STRING = re.sub(r'Ä', '&Auml', STRING)
+        STRING = re.sub(r'Å', '&Aring', STRING)
+        STRING = re.sub(r'Ö', '&Ouml', STRING)
+        # Fuck you 2023
+        STRING = re.sub(r'202\s3', '2023', STRING)
+        return STRING
+    def replaceaao2(STRING):
+        STRING = re.sub(r'ä', '%C3%A4', STRING)
+        STRING = re.sub(r'å', '%C3%A5', STRING)
+        STRING = re.sub(r'ö', '%C3%B6', STRING)
+        STRING = re.sub(r'Ä', '%C3%84', STRING)
+        STRING = re.sub(r'Å', '%C3%85', STRING)
+        STRING = re.sub(r'Ö', '%C3%96', STRING)
+        return STRING
 
-    # sort those fuckers by year. Fuck you 2023
+    # sort those fuckers by year.
     spexPlural = os.listdir(urlToSongs)
     test = [[j1, j2] for j1, j2 in zip(spexPlural, [re.search(r'\d\d\d\d', i).group(0) for i in spexPlural])]
-    test[37][1] = '2013'
+
     test.sort(key=lambda t: t[1])
 
     spexCounter = 0
@@ -114,7 +132,17 @@ def genPage(showMelody=True):
                 songText = re.sub(r'\n', '<br>', songText)
                 m = re.split(r'<br>',songText)
                 if showMelody == True:
-                    m[0] = '<i><b><small>' + m[0] + '</small></b></i><br>'
+                    if showYoutube == True:
+                        search = re.split(' ', m[0])
+                        if search[0] == 'Melodi:' or search[0]=='melodi:':
+                            search.pop(0)
+                        s1 = 'https://www.youtube.com/results?search_query='
+                        s1 = s1 + '+'.join(search)
+                        s1 = replaceaao2(s1)
+                        search = '<a href="' + s1+'" target="_blank">' + 'YouTube' + '</a>'
+                    else:
+                        search = ''
+                    m[0] = '<i><b><small>' + m[0] + '</small></b></i><br>' + search
                 else:
                     m[0] = '\n'
 
@@ -136,24 +164,14 @@ def genPage(showMelody=True):
     webPageString = re.sub(r'MONSTERSTRINGHERE',monsterString, webPageTemplate)
 
     # HTML är ju kul. Ersätter åäö med kompatiblare tecken.
-    if 1==1:
-        webPageString = re.sub(r'ä', '&auml', webPageString)
-        webPageString = re.sub(r'å', '&aring', webPageString)
-        webPageString = re.sub(r'ö', '&ouml', webPageString)
-        webPageString = re.sub(r'Ä', '&Auml', webPageString)
-        webPageString = re.sub(r'Å', '&Aring', webPageString)
-        webPageString = re.sub(r'Ö', '&Ouml', webPageString)
-        # Fuck you 2023
-        webPageString = re.sub(r'202\s3', '2023', webPageString)
+    webPageString = replaceaao(webPageString)
 
     #write webpage FULL
     w = open(wk_dir + 'webPage{}.html'.format(str(showMelody)), 'w')
-
     w.write(webPageString)
     w.close()
 
 
-    # %% Renaming songs in folders
     for spex in os.listdir(urlToSongs):
         for song in os.listdir(urlToSongs + spex):
             f = open(urlToSongs + spex + '/' + song, 'r')
@@ -165,10 +183,6 @@ def genPage(showMelody=True):
             os.rename(urlToSongs + spex +'/' + song,
                       urlToSongs + spex +'/' + digit + '.' + m + '.txt')
 
-genPage(showMelody=True)
 genPage(showMelody=False)
-
-
-
-
-
+genPage(showMelody=True, showYoutube=True)
+re.findall('VT_2005', "['Tutankhanmun_(VT_2005)', '2005']")

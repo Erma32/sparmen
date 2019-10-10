@@ -1,7 +1,9 @@
 import re, os
-wk_dir = os.getcwd() + '/'
-sources = '/home/markus/sparmen/sources/'
-file = 'Kompani_Kivik_(Kivik_2016)'
+
+wk_dir = '/home/markus/sparmen (another copy)/sources2/temp' + '/'
+
+sources = '/home/markus/sparmen (another copy)/sources2/temp/'
+file = 'Titanic (VT 2016)'
 
 if file not in os.listdir(wk_dir):
     os.mkdir(wk_dir + file)
