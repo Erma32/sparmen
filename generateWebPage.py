@@ -52,6 +52,22 @@ def genPage(showMelody=True, showYoutube=True):
         STRING = re.sub(r'Ö', '&Ouml', STRING)
         # Fuck you 2023
         STRING = re.sub(r'202\s3', '2023', STRING)
+        STRING = re.sub(r'–', '-', STRING)
+        STRING = re.sub(r'é', '&eacute', STRING)
+        STRING = re.sub(r'’', '', STRING)
+        STRING = re.sub(r'´', '', STRING)
+        STRING = re.sub(r"æ", "&aelig;", STRING)
+        STRING = re.sub(r"ø", "&oslash;", STRING)
+        STRING = re.sub(r"å", "&aring;", STRING)
+        STRING = re.sub(r"Æ", "&AElig;", STRING)
+        STRING = re.sub(r"Ø", "&Oslash;", STRING)
+        STRING = re.sub(r"Å", "&Aring;", STRING)
+        STRING = re.sub(r'ß', '&szlig', STRING)
+        STRING = re.sub(r'ü', '&uuml', STRING)
+        STRING = re.sub(r'Ä', '&Auml', STRING)
+        STRING = re.sub(r'Ö', '&Ouml', STRING)
+        STRING = re.sub(r'Ü', '&Uuml', STRING)
+        STRING = re.sub(r'10.16', '10.6.16', STRING)
         return STRING
     def replaceaao2(STRING):
         STRING = re.sub(r'ä', '%C3%A4', STRING)
@@ -60,6 +76,8 @@ def genPage(showMelody=True, showYoutube=True):
         STRING = re.sub(r'Ä', '%C3%84', STRING)
         STRING = re.sub(r'Å', '%C3%85', STRING)
         STRING = re.sub(r'Ö', '%C3%96', STRING)
+        STRING = re.sub(r'–', '&ndash', STRING)
+        STRING = re.sub(r'é', '&eacute', STRING)
         return STRING
 
     # sort those fuckers by year.
@@ -183,6 +201,8 @@ def genPage(showMelody=True, showYoutube=True):
             os.rename(urlToSongs + spex +'/' + song,
                       urlToSongs + spex +'/' + digit + '.' + m + '.txt')
 
-genPage(showMelody=False)
-genPage(showMelody=True, showYoutube=True)
-re.findall('VT_2005', "['Tutankhanmun_(VT_2005)', '2005']")
+#genPage(showMelody=False)
+genPage(showMelody=True, showYoutube=False)
+
+
+# %%
