@@ -1,17 +1,16 @@
 import os, sys, re
 from itertools import cycle
 
-
 spexString ='''
-<button class="t1">SPEX</button>
-<div class="co1">
+<button class="titlebutton1">SPEX</button>
+<div class="content">
 SONGS
 </div>
 '''
 
 spexString2 ='''
-<button class="t2">SPEX</button>
-<div class="co1">
+<button class="titlebutton2">SPEX</button>
+<div class="content">
 SONGS
 </div>
 '''
@@ -19,24 +18,25 @@ SONGS
 SS = cycle([spexString,spexString2])
 
 oneSong = '''
-  <button class="c3">SONGTITLE</button>
-  <div class="co2">
+  <button class="collapsible3">SONGTITLE</button>
+  <div class="content2">
     SONGTEXT
   </div>
 '''
 oneSong2 = '''
-  <button class="c5">SONGTITLE</button>
-  <div class="co2">
+  <button class="collapsible5">SONGTITLE</button>
+  <div class="content2">
     SONGTEXT
   </div>
 '''
 OS = cycle([oneSong, oneSong2])
 
-titleBox = '''<button class="c2">YEAR</button>
-<div class="co2">
-
+titleBox = '''<button class="collapsible2">YEAR</button>
+<div class="content2">
 </div>
 '''
+wk_dir = '/home/markus/sparmen/'
+urlToSongs = wk_dir + '/songTXT/'
 
 def genPage(showMelody=True, showYoutube=True):
     wk_dir = '/home/markus/sparmen/'
@@ -203,6 +203,3 @@ def genPage(showMelody=True, showYoutube=True):
 
 #genPage(showMelody=False)
 genPage(showMelody=True, showYoutube=False)
-
-
-# %%

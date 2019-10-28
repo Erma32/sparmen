@@ -1,30 +1,19 @@
 <!DOCTYPE html>
-<html><head><body bgcolor="#f0f0f0">
-<meta name="viewport" co1="width=device-width, initial-scale=1">
-<meta http-equiv="co1-type" co1="text/html;charset=UTF-8" />
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<body bgcolor="#f0f0f0">
+
 
 
 <style>
-.t1 {
+.titlebutton1 {
   background-color: #ffffff;
   color: black;
   transition: all 0.4s ease 0s;
   cursor: pointer;
   padding: 5px;
-  width: 100%;
-  border: 4px solid #000000;
-  text-align: left;
-  outline: none;
-  font-size: 14px;
-  border-radius: 10px;
-}
-.t2 {
-  background-color: #000000;
-  color: white;
-  cursor: pointer;
-  padding: 1px;
-    transition: all 0.4s ease 0s;
-
   width: 100%;
   border: 4px solid #000000 !important;
   text-align: left;
@@ -32,7 +21,20 @@
   font-size: 14px;
   border-radius: 10px;
 }
-.c2 {
+.titlebutton2 {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  padding: 1px;
+    transition: all 0.4s ease 0s;
+  width: 100%;
+  border: 4px solid #000000 !important;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.collapsible2 {
   background-color: #000000;
   color: black;
   cursor: pointer;
@@ -48,14 +50,13 @@
   font-size: 18px;
   font-weight: bold;
  letter-spacing: 8px;
-
   border: none;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
 transition: all 0.4s ease 0s;
 }
-.c3 {
+.collapsible3 {
   background-color: #FFFFFF;
   color: black;
   cursor: pointer;
@@ -67,9 +68,8 @@ transition: all 0.4s ease 0s;
     border: 4px solid #000000 !important;
     border-radius: 10px;
      letter-spacing: 3px;
-
 }
-.c5 {
+.collapsible5 {
   background-color: black;
   color: white;
   cursor: pointer;
@@ -81,20 +81,16 @@ transition: all 0.4s ease 0s;
     border: 4px solid #000000 !important;
     border-radius: 10px;
      letter-spacing: 3px;
-
 }
-
-.a1{
+.active{
   background-color: green;
    color: white;
     text-align: center;
     border: 4px solid #000000 ;
     border-radius: 10px;
     font-weight: bold;
-
-
 }
-.a2{
+.active2{
   background-color: green;
     text-align: left;
       border: 4px solid #000000;
@@ -102,18 +98,15 @@ transition: all 0.4s ease 0s;
     font-weight: bold;
     color:white;
 }
-
-.co1 {
+.content {
   padding: 0 0px;
   display: none;
   overflow: hidden;
   background-color: #000000;
   border: 4px solid #000000 ;
   border-radius: 10px;
-
 }
-
-.co2 {
+.content2 {
   padding: 0 10px;
   display: none;
   width: 100%;
@@ -131,69 +124,66 @@ transition: all 0.4s ease 0s;
 <h2>Var GladSpexarnas Sångpärm</h2>
 <h6>S = Sommarspex, K = Karneval, E = SAKNAS</h6>
 
-
 MONSTERSTRINGHERE
 
-<script>
-var coll = document.getElementsByClassName("t1");
-var i;
 
+
+<script>
+var coll = document.getElementsByClassName("titlebutton1");
+var i;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
-    this.classList.toggle("a1");
-    var co1 = this.nextElementSibling;
-    if (co1.style.display === "block") {
-      co1.style.display = "none";
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
     } else {
-      co1.style.display = "block";
+      content.style.display = "block";
     }
   });
 }
 </script>
 <script>
-var coll = document.getElementsByClassName("c3");
+var coll = document.getElementsByClassName("collapsible3");
 var i;
-
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
-    this.classList.toggle("a2");
-    var co1 = this.nextElementSibling;
-    if (co1.style.display === "block") {
-      co1.style.display = "none";
+    this.classList.toggle("active2");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
     } else {
-      co1.style.display = "block";
+      content.style.display = "block";
     }
   });
 }
 </script>
 <script>
-var coll = document.getElementsByClassName("t2");
+var coll = document.getElementsByClassName("titlebutton2");
 var i;
-
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
-    this.classList.toggle("a1");
-    var co1 = this.nextElementSibling;
-    if (co1.style.display === "block") {
-      co1.style.display = "none";
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
     } else {
-      co1.style.display = "block";
+      content.style.display = "block";
     }
   });
 }
 </script>
 <script>
-var coll = document.getElementsByClassName("c5");
+var coll = document.getElementsByClassName("collapsible5");
 var i;
-
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
-    this.classList.toggle("a2");
-    var co1 = this.nextElementSibling;
-    if (co1.style.display === "block") {
-      co1.style.display = "none";
+    this.classList.toggle("active2");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
     } else {
-      co1.style.display = "block";
+      content.style.display = "block";
     }
   });
 }
