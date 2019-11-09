@@ -1,5 +1,8 @@
 import os, sys, re
+from datetime import date
 from itertools import cycle
+
+today = date.today()
 
 spexString ='''
 <button class="titlebutton1">SPEX</button>
@@ -183,7 +186,7 @@ def genPage(showMelody=True, showYoutube=True):
 
     # HTML är ju kul. Ersätter åäö med kompatiblare tecken.
     webPageString = replaceaao(webPageString)
-
+    webPageString = re.sub(r'DATUM', 'Uppdaterad: {}'.format(today),webPageString)
     #write webpage FULL
     w = open(wk_dir + 'webPage{}.html'.format(str(showMelody)), 'w')
     w.write(webPageString)
@@ -201,5 +204,6 @@ def genPage(showMelody=True, showYoutube=True):
             os.rename(urlToSongs + spex +'/' + song,
                       urlToSongs + spex +'/' + digit + '.' + m + '.txt')
 
-#genPage(showMelody=False)
+
+genPage(showMelody=False)
 genPage(showMelody=True, showYoutube=False)
