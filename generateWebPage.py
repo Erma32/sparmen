@@ -152,6 +152,7 @@ def genPage(showMelody=True, showYoutube=True):
 
                 songText = re.sub(r'\n', '<br>', songText)
                 m = re.split(r'<br>',songText)
+
                 if showMelody == True:
                     if showYoutube == True:
                         search = re.split(' ', m[0])
