@@ -1,18 +1,20 @@
 import os, sys, re
 from datetime import date
 from itertools import cycle
+import platform
 
 today = date.today()
 
+
 spexString ='''
-<button class="titlebutton1">SPEX</button>
+<button class="sp" id="one">SPEX</button>
 <div class="content">
 SONGS
 </div>
 '''
 
 spexString2 ='''
-<button class="titlebutton2">SPEX</button>
+<button class="sp" id="two">SPEX</button>
 <div class="content">
 SONGS
 </div>
@@ -21,31 +23,42 @@ SONGS
 SS = cycle([spexString,spexString2])
 
 oneSong = '''
-  <button class="collapsible3">SONGTITLE</button>
-  <div class="content2">
+  <button class="sb" id="one">SONGTITLE</button>
+  <div class="song">
     SONGTEXT
   </div>
 '''
+
 oneSong2 = '''
-  <button class="collapsible5">SONGTITLE</button>
-  <div class="content2">
+  <button class="sb" id="two">SONGTITLE</button>
+  <div class="song">
     SONGTEXT
   </div>
+
 '''
 OS = cycle([oneSong, oneSong2])
 
-titleBox = '''<button class="collapsible2">YEAR</button>
-<div class="content2">
-</div>
-'''
-wk_dir = '/home/markus/sparmen/'
-urlToSongs = wk_dir + '/songTXT/'
+titleBox = '''<button class="sb" style="background-color:black;color:white;text-align:left;font-weight:bold;font-size:20;">YEAR</button>
+<div class="song" id="three">
+</div>'''
 
 def genPage(showMelody=True, showYoutube=True):
-    wk_dir = '/home/markus/sparmen/'
-    # wk_dir = os.getcwd() + '/'
+    if platform.system() == 'Linux':
+        wk_dir = os.path.dirname(os.path.realpath(__file__))+'/'
+    elif platform.system() == 'Windows':
+        wk_dir = os.path.dirname(os.path.realpath(__file__))+'/'
+        wk_dir = re.sub(r'[\]', '/', wk_dir)
+
+    # wk_dir = input('Gief work directory')
+    print('Current wkdir is {}'.format(wk_dir))
+    if 'songTXT' in os.listdir(wk_dir):
+        print('\n This folder contain songTXT. Good job!')
+    else:
+        print('\n This folder does not contain songTXT :(')
+
     urlToSongs = wk_dir + '/songTXT/'
     monsterString = ''
+
     def replaceaao(STRING):
         STRING = re.sub(r'ä', '&auml', STRING)
         STRING = re.sub(r'å', '&aring', STRING)
@@ -112,7 +125,7 @@ def genPage(showMelody=True, showYoutube=True):
         spexCounter = spexDict[button]['num']
 
         currentSpexString = next(SS)
-        title = str(spexCounter)+ '&nbsp'*5 + re.sub(r'[_]', ' ', button) + '&nbsp'*5 + '['
+        title ='<b>'+ str(spexCounter)+'</b>'+ '&nbsp'*5 + re.sub(r'[_]', ' ', button) + '&nbsp'*5 + '['
 
         storeSongs = []
         songCounter = 0
@@ -182,16 +195,21 @@ def genPage(showMelody=True, showYoutube=True):
     f = open(wk_dir + 'pageTemplate.html', 'r')
     webPageTemplate = f.read()
     f.close()
-
+    print('Creating webpage template.')
     webPageString = re.sub(r'MONSTERSTRINGHERE',monsterString, webPageTemplate)
 
     # HTML är ju kul. Ersätter åäö med kompatiblare tecken.
     webPageString = replaceaao(webPageString)
     webPageString = re.sub(r'DATUM', 'Uppdaterad: {}'.format(today),webPageString)
     #write webpage FULL
-    w = open(wk_dir + 'webPage{}.html'.format(str(showMelody)), 'w')
+    webpageURL = wk_dir +'webPageTest{}.html'.format(str(showMelody))
+    print('Writing webpage to file {}'.format(webpageURL))
+    w = open(webpageURL, 'w')
     w.write(webPageString)
     w.close()
+    if 'webPage{}.html'.format(str(showMelody)) in os.listdir(wk_dir):
+        print('webPage{}.html'.format(str(showMelody))+'is in your working directory!')
+        print('All is well, enjoy your new webpage!')
 
 
     for spex in os.listdir(urlToSongs):
@@ -206,5 +224,4 @@ def genPage(showMelody=True, showYoutube=True):
                       urlToSongs + spex +'/' + digit + '.' + m + '.txt')
 
 
-genPage(showMelody=False)
 genPage(showMelody=True, showYoutube=False)

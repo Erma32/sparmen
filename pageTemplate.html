@@ -1,88 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<body bgcolor="#f0f0f0">
+<style type="text/css">
+* {
+  font-family: verdana;
+}
 
+body {
+  background-color: black;
+}
 
-
-<style>
-.titlebutton1 {
-  background-color: #ffffff;
-  color: black;
+.sp {
+  /* This is a class */
   transition: all 0.4s ease 0s;
   cursor: pointer;
   padding: 5px;
   width: 100%;
-  border: 4px solid #000000 !important;
+  border: 1px solid #000000 !important;
   text-align: left;
   outline: none;
   font-size: 14px;
   border-radius: 10px;
 }
-.titlebutton2 {
-  background-color: #000000;
-  color: white;
-  cursor: pointer;
-  padding: 1px;
-    transition: all 0.4s ease 0s;
-  width: 100%;
-  border: 4px solid #000000 !important;
-  text-align: left;
-  outline: none;
-  font-size: 14px;
-  border-radius: 10px;
-}
-.collapsible2 {
-  background-color: #000000;
-  color: black;
-  cursor: pointer;
-  padding: 5px;
-  width: 100%;
-  text-align: left;
-    text-shadow:
-   -1px -1px 0 #fff,
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-     1px 1px 0 #fff;
-  outline: none;
-  font-size: 18px;
-  font-weight: bold;
- letter-spacing: 8px;
-  border: none;
-  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-transition: all 0.4s ease 0s;
-}
-.collapsible3 {
-  background-color: #FFFFFF;
-  color: black;
-  cursor: pointer;
-  padding: 5px;
-  width: 80%;
-  text-align: left;
-  outline: none;
-  font-size: 12px;
-    border: 4px solid #000000 !important;
-    border-radius: 10px;
-     letter-spacing: 3px;
-}
-.collapsible5 {
+
+#one.sp{
   background-color: black;
   color: white;
+}
+#two.sp{
+  background-color: white;
+  color: black
+}
+
+#two.song{
+  background-color: green;
+  color:black;
+}
+#one.sb{
+  background-color: black;
+  color: white;
+}
+#two.sb{
+  background-color: white;
+  color: black;
+}
+
+#one.ac{
+  background-color: green;
+  color:black;
+}
+#two.ac{
+  background-color: green;
+  color:black;
+}
+.sb {
+  /* This is a class */
+  transition: all 0.4s ease 0s;
   cursor: pointer;
   padding: 5px;
-  width: 80%;
+  width: 100%;
+  border: 1px solid #000000 !important;
   text-align: left;
   outline: none;
-  font-size: 12px;
-    border: 4px solid #000000 !important;
-    border-radius: 10px;
-     letter-spacing: 3px;
+  font-size: 14px;
+  border-radius: 10px;
 }
-.active{
+
+.ac{
   background-color: green;
    color: white;
     text-align: center;
@@ -90,104 +74,164 @@ transition: all 0.4s ease 0s;
     border-radius: 10px;
     font-weight: bold;
 }
-.active2{
-  background-color: green;
-    text-align: left;
-      border: 4px solid #000000;
-    border-radius: 10px;
-    font-weight: bold;
-    color:white;
-}
 .content {
   padding: 0 0px;
   display: none;
   overflow: hidden;
   background-color: #000000;
-  border: 4px solid #000000 ;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
   border-radius: 10px;
 }
-.content2 {
-  padding: 0 10px;
-  display: none;
-  width: 100%;
-  font-size: 16px;
-  overflow: visible;
+
+
+.song{
   color: white;
-  background-color: #000000;
-  text-align:left;
+  padding-left:10px;
 }
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+
+/* .content {
+  padding: 16px;
+} */
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 0px;
+}
+
+h2, h6 {
+  color: white;
+  font-weight: bold;
+}
+
+.inac{
+  background-color: #333;
+  color: gray;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
 </style>
 
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+
+<div id="navbar">
+
+  <button class="ac" id="sparmen">Spärmen</button>
+  <button class="inac" id="forteckning">InactiveButton</button>
+  <button class="inac" id="urval">InactiveButton</button>
+  <button class="inac" id="qr">InactiveButton</button>
+  <button class="inac" id="TODO">InactiveButton</button>
+</div>
+
+<title>Songs to fill the void</title>
 </head>
-<!-------------->
-<h2>Var GladSpexarnas Sångpärm</h2>
+
+<body onscroll="navBar()">
+
+<h2>Sångpärm</h2>
 <h6>S = Sommarspex, K = Karneval, E = SAKNAS</h6>
 <h6>DATUM</h6>
 
+<div class="main">
 MONSTERSTRINGHERE
+</div>
+
+<script>
+  var spex = document.getElementsByClassName("sp");
+  var sbs =  document.getElementsByClassName("sb");
+  var songs =  document.getElementsByClassName("song");
+
+for (i = 0; i < spex.length; i++) {
+  spex[i].addEventListener("click", function() {
+    for (m = 0; m < sbs.length; m++) {
+      if( sbs[m].classList.contains("ac")) {sbs[m].classList.toggle("ac")} else {}}
+      for (m = 0; m < songs.length; m++) {
+        songs[m].style.display = "none";}
+
+      var isac = this.classList.contains("ac");
+
+      for (k = 0; k < spex.length; k++) {
+      if ( spex[k].classList.contains("ac")) { spex[k].classList.toggle("ac"); }  else {} }
+
+      if (isac) {} else{this.classList.toggle("ac");}
+
+      var content = this.nextElementSibling;
+
+      var temp = content.style.display
+
+      for (m = 0; m < spex.length; m++) {
+        var content2 = spex[m].nextElementSibling;
+        content2.style.display =  "none";
+      }
+
+      if (temp === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+
+      // content.style.display = "block";
+    for (j = 0; j < songs.length; j++) {
+      songs[j].style.display = "none";}
+    });
+  }
+
+  for (j = 0; j < sbs.length; j++) {
+    sbs[j].addEventListener("click", function() {
+
+      var isac = this.classList.contains("ac")
+
+      for (m = 0; m < sbs.length; m++) {
+        if( sbs[m].classList.contains("ac")) {sbs[m].classList.toggle("ac")} else {}}
+      if (isac){} else{this.classList.toggle("ac");}
+
+      var content = this.nextElementSibling;
+
+      var temp = content.style.display
+
+      for (m = 0; m < songs.length; m++) {
+
+        songs[m].style.display = "none";}
 
 
+      // document.getElementById("song").style.display = "none";
 
-<script>
-var coll = document.getElementsByClassName("titlebutton1");
-var i;
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
+      if (temp === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+
+
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+
+  function navBar() {
+    if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
     } else {
-      content.style.display = "block";
+    navbar.classList.remove("sticky");
     }
-  });
-}
-</script>
-<script>
-var coll = document.getElementsByClassName("collapsible3");
-var i;
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active2");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script>
-<script>
-var coll = document.getElementsByClassName("titlebutton2");
-var i;
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script>
-<script>
-var coll = document.getElementsByClassName("collapsible5");
-var i;
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active2");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
+  }
+
 </script>
 </body>
 </html>
