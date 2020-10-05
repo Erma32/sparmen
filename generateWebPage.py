@@ -4,7 +4,7 @@ from itertools import cycle
 import platform
 
 today = date.today()
-
+#####   :w
 
 spexString ='''
 <button class="sp" id="one">SPEX</button>
