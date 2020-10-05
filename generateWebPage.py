@@ -202,8 +202,8 @@ def genPage(showMelody=True, showYoutube=True):
     webPageString = replaceaao(webPageString)
     webPageString = re.sub(r'DATUM', 'Uppdaterad: {}'.format(today),webPageString)
     #write webpage FULL
-    webpageURL = wk_dir +'webPageTest{}.html'.format(str(showMelody))
-    print('Writing webpage to file {}'.format(webpageURL))
+    webpageURL = wk_dir +'index.html'
+    print('Writing webpage to file {}')
     w = open(webpageURL, 'w')
     w.write(webPageString)
     w.close()
